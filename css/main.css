@@ -195,6 +195,7 @@ a { color: inherit; text-decoration: none; }
   -webkit-text-fill-color: transparent;
 }
 .mh-purple-text { color: var(--violet); }
+.mh-blue-text { color: var(--blue); }
 
 /* ---------------------------------------------------
    Nav
