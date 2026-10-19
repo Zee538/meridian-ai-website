@@ -6,6 +6,9 @@
   const track = marquee.querySelector(".mh-marquee-track");
   const group = track.querySelector(".mh-marquee-group");
   const SPEED = 55;
+  const MIN_ITEMS_TO_SLIDE = 3;
+
+  if (group.children.length < MIN_ITEMS_TO_SLIDE) return;
 
   function build() {
     track.querySelectorAll(".mh-marquee-clone").forEach((el) => el.remove());

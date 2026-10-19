@@ -426,14 +426,14 @@ a { color: inherit; text-decoration: none; }
 /* ---------------------------------------------------
    Trusted by (sliding carousel)
 --------------------------------------------------- */
-.mh-trusted { padding: 0 0 100px; background: var(--bg); }
+.mh-trusted { padding: 20px 0 130px; background: var(--bg); }
 .mh-trusted-label { text-align: center; }
 .mh-marquee {
   --shift: 0px;
   --dur: 30s;
   position: relative;
   overflow: hidden;
-  margin-top: 28px;
+  margin-top: 40px;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
@@ -454,16 +454,16 @@ a { color: inherit; text-decoration: none; }
 .mh-trust-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  min-height: 76px;
-  padding: 16px 30px;
-  border-radius: 18px;
+  gap: 22px;
+  min-height: 120px;
+  padding: 20px 48px;
+  border-radius: 26px;
   border: 1px solid var(--border);
   background: var(--panel);
   font-family: var(--font-head);
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--text-dim-3);
   white-space: nowrap;
   transition: opacity .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
@@ -471,15 +471,15 @@ a { color: inherit; text-decoration: none; }
 .mh-trust-logo {
   position: relative;
   flex: none;
-  width: 48px;
-  height: 48px;
-  margin-left: -14px;
+  width: 80px;
+  height: 80px;
+  margin-left: -26px;
 }
 .mh-trust-logo::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: 18px;
   background: #ffffff;
   opacity: 0;
   transition: opacity .35s var(--ease);
@@ -490,7 +490,7 @@ a { color: inherit; text-decoration: none; }
   width: calc(100% - 6px);
   height: calc(100% - 6px);
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 14px;
   transition: opacity .35s var(--ease);
 }
 .mh-logo-mono { filter: grayscale(1) invert(1); mix-blend-mode: screen; opacity: 0.6; }
@@ -498,6 +498,9 @@ a { color: inherit; text-decoration: none; }
 .mh-trust-item:hover .mh-trust-logo::before,
 .mh-trust-item:hover .mh-logo-color { opacity: 1; }
 .mh-trust-item:hover .mh-logo-mono { opacity: 0; }
+.mh-marquee:not(.is-running) { -webkit-mask-image: none; mask-image: none; }
+.mh-marquee:not(.is-running) .mh-marquee-track { width: 100%; justify-content: center; }
+.mh-marquee:not(.is-running) .mh-marquee-group { padding: 0; }
 .mh-marquee:hover .mh-trust-item { opacity: 0.4; }
 .mh-marquee .mh-trust-item:hover { opacity: 1; color: var(--text); border-color: var(--teal); }
 
@@ -654,8 +657,9 @@ a { color: inherit; text-decoration: none; }
   .mh-nav-links .mh-btn { padding: 0 12px; min-height: 36px; font-size: 12.5px; }
   .mh-hero, .mh-who, .mh-how, .mh-cta { padding-left: 24px; padding-right: 24px; }
   .mh-trusted { padding-bottom: 72px; }
-  .mh-trust-item { min-height: 60px; padding: 12px 22px; font-size: 16px; }
-  .mh-trust-logo { width: 36px; height: 36px; margin-left: -8px; }
+  .mh-trusted { padding-top: 0; }
+  .mh-trust-item { min-height: 88px; padding: 14px 28px; gap: 16px; font-size: 20px; }
+  .mh-trust-logo { width: 56px; height: 56px; margin-left: -12px; }
   .mh-hero-stats { gap: 32px; }
   .mh-hero-stat-num { font-size: 26px; }
   .mh-hero-headline { font-size: clamp(40px, 10vw, 64px); }
