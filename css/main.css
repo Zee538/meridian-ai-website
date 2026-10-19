@@ -424,46 +424,73 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------------------------------------------------
-   Who it's for
+   Trusted by (sliding carousel)
 --------------------------------------------------- */
-/* ---------------------------------------------------
-   First client
---------------------------------------------------- */
-.mh-client { padding: 0 64px 100px; background: var(--bg); }
-.mh-client-label { text-align: center; }
-.mh-client-card {
+.mh-trusted { padding: 0 0 100px; background: var(--bg); }
+.mh-trusted-label { text-align: center; }
+.mh-marquee {
+  --shift: 0px;
+  --dur: 30s;
+  position: relative;
+  overflow: hidden;
+  margin-top: 28px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.mh-marquee-track { display: flex; width: max-content; }
+.mh-marquee.is-running .mh-marquee-track { animation: mh-marquee var(--dur) linear infinite; }
+.mh-marquee.is-running:hover .mh-marquee-track { animation-play-state: paused; }
+@keyframes mh-marquee { to { transform: translateX(calc(var(--shift) * -1)); } }
+
+.mh-marquee-group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0 20px 0 0;
+  list-style: none;
+}
+.mh-trust-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 28px;
-  width: fit-content;
-  max-width: 100%;
-  margin: 24px auto 0;
-  padding: 24px 40px 24px 24px;
-  border-radius: 28px;
+  gap: 14px;
+  padding: 16px 30px;
+  border-radius: 18px;
   border: 1px solid var(--border);
   background: var(--panel);
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-dim-3);
+  white-space: nowrap;
+  transition: opacity .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
 }
-.mh-client-logo {
-  flex: none;
+.mh-trust-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 128px;
-  height: 128px;
-  padding: 8px;
-  border-radius: 22px;
+  width: 44px;
+  height: 44px;
+  margin-left: -14px;
+  padding: 3px;
+  border-radius: 12px;
   background: #ffffff;
 }
-.mh-client-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.mh-client-name {
-  font-family: var(--font-head);
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+.mh-trust-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.mh-marquee:hover .mh-trust-item { opacity: 0.4; }
+.mh-marquee .mh-trust-item:hover { opacity: 1; color: var(--text); border-color: var(--teal); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mh-marquee { -webkit-mask-image: none; mask-image: none; overflow-x: auto; }
+  .mh-marquee-group { flex-wrap: wrap; justify-content: center; padding: 0 24px; }
+  .mh-marquee-track { width: 100%; }
 }
-.mh-client-desc { margin-top: 8px; font-size: 17px; color: var(--text-dim-2); }
+
+/* ---------------------------------------------------
+   Who it's for
+--------------------------------------------------- */
 
 .mh-who { padding: 40px 64px 120px; background: var(--bg); }
 .mh-who-grid {
@@ -606,11 +633,10 @@ a { color: inherit; text-decoration: none; }
   .mh-nav-links { gap: 8px; font-size: 15px; }
   .mh-nav-links a:not(.mh-btn) { display: none; }
   .mh-nav-links .mh-btn { padding: 0 12px; min-height: 36px; font-size: 12.5px; }
-  .mh-hero, .mh-client, .mh-who, .mh-how, .mh-cta { padding-left: 24px; padding-right: 24px; }
-  .mh-client { padding-bottom: 72px; }
-  .mh-client-card { flex-direction: column; gap: 18px; padding: 24px; text-align: center; }
-  .mh-client-logo { width: 112px; height: 112px; }
-  .mh-client-name { font-size: 22px; }
+  .mh-hero, .mh-who, .mh-how, .mh-cta { padding-left: 24px; padding-right: 24px; }
+  .mh-trusted { padding-bottom: 72px; }
+  .mh-trust-item { padding: 12px 22px; font-size: 16px; }
+  .mh-trust-logo { width: 36px; height: 36px; margin-left: -8px; }
   .mh-hero-stats { gap: 32px; }
   .mh-hero-stat-num { font-size: 26px; }
   .mh-hero-headline { font-size: clamp(40px, 10vw, 64px); }
