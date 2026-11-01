@@ -183,12 +183,6 @@ a { color: inherit; text-decoration: none; }
 }
 .mh-btn-brand.mh-btn-lg { box-shadow: 0 12px 40px rgba(31, 224, 176, 0.25); }
 
-.mh-logo-mark {
-  display: block;
-  width: 32px; height: 32px;
-}
-.mh-logo-mark svg { display: block; width: 100%; height: 100%; }
-.mh-logo-mark-sm { width: 24px; height: 24px; }
 .mh-grad-text {
   background: var(--grad-text);
   -webkit-background-clip: text;
@@ -209,14 +203,6 @@ a { color: inherit; text-decoration: none; }
   background: var(--bg-alt);
 }
 .mh-logo { display: flex; align-items: center; gap: 14px; }
-.mh-logo-text {
-  font-family: var(--font-head);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-.mh-logo-text span { color: rgba(31, 224, 176, 0.65); font-weight: 500; }
 .mh-nav-links {
   display: flex;
   align-items: center;
@@ -625,8 +611,6 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 860px) {
   .mh-nav { padding: 14px 16px; gap: 10px; }
   .mh-logo { gap: 8px; }
-  .mh-logo-mark { width: 24px; height: 24px; }
-  .mh-logo-text { font-size: 16px; letter-spacing: -0.005em; white-space: nowrap; }
   .mh-hero, .mh-who, .mh-how, .mh-cta { padding-left: 24px; padding-right: 24px; }
   .mh-trusted { padding-bottom: 72px; }
   .mh-trusted { padding-top: 0; }
@@ -646,9 +630,6 @@ a { color: inherit; text-decoration: none; }
   .mh-call-icon { width: 34px; height: 34px; }
 }
 
-@media (max-width: 400px) {
-  .mh-logo-text { font-size: 13px; }
-}
 
 /* ---------------------------------------------------
    Footer link, keyboard focus, 404
@@ -713,8 +694,6 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
   margin: 0 auto;
 }
 .mh-footer-brandcol { max-width: 340px; }
-.mh-footer .mh-logo { gap: 12px; }
-.mh-footer-name { font-family: var(--font-head); font-size: 20px; font-weight: 600; color: var(--text); }
 .mh-footer-slogan { margin: 20px 0 0; font-family: var(--font-head); font-style: italic; font-weight: 600; font-size: 15px; color: var(--teal); }
 .mh-footer-blurb { margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--text-dim-2); }
 .mh-footer-cols { display: flex; gap: 72px; flex-wrap: wrap; }
@@ -982,23 +961,56 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
   .mh-cta-compact { padding: 32px 24px 80px; }
   .mh-cta-title-sm { font-size: clamp(30px, 8vw, 40px); }
 }
-@media (max-width: 400px) {
-  .mh-logo-text { font-size: 14px; }
-}
 
 /* Keep the wordmark on one line at in-between widths */
 .mh-logo { flex: none; }
-.mh-logo-text { white-space: nowrap; }
 @media (max-width: 1100px) {
   .mh-nav { padding: 20px 32px; }
-  .mh-logo-text { font-size: 22px; }
   .mh-nav-links { gap: 22px; font-size: 16px; }
   .mh-nav-links .mh-btn { padding: 0 20px; }
 }
 @media (max-width: 860px) {
   .mh-nav { padding: 14px 16px; }
-  .mh-logo-text { font-size: 16px; }
+}
+
+/* ---------------------------------------------------
+   Logo lockup: compass + wordmark
+--------------------------------------------------- */
+.mh-logo { display: flex; align-items: center; gap: 14px; flex: none; }
+.mh-logo-icon { display: block; height: 62px; width: auto; }
+.mh-logo-rule { flex: none; width: 2px; height: 50px; border-radius: 2px; background: linear-gradient(180deg, #e0b13a, #b98a1f); }
+.mh-logo-words { display: flex; flex-direction: column; gap: 6px; line-height: 1; }
+.mh-logo-name { font-family: "Montserrat", var(--font-head); font-weight: 700; font-size: 26px; letter-spacing: 0.02em; color: #fff; }
+.mh-logo-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Montserrat", var(--font-head);
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 0.42em;
+  color: #e6efe9;
+  white-space: nowrap;
+}
+.mh-logo-sub i { flex: 1; min-width: 8px; height: 2px; background: #1fb58a; }
+.mh-logo--footer .mh-logo-icon { height: 68px; }
+.mh-logo--footer .mh-logo-name { font-size: 28px; }
+
+@media (max-width: 1100px) {
+  .mh-logo-icon { height: 52px; }
+  .mh-logo-rule { height: 42px; }
+  .mh-logo-name { font-size: 22px; }
+  .mh-logo-sub { font-size: 8px; }
+}
+@media (max-width: 860px) {
+  .mh-logo { gap: 10px; }
+  .mh-logo-icon { height: 44px; }
+  .mh-logo-rule { height: 34px; }
+  .mh-logo-name { font-size: 18px; }
+  .mh-logo-sub { font-size: 7px; gap: 6px; }
 }
 @media (max-width: 400px) {
-  .mh-logo-text { font-size: 14px; }
+  .mh-logo { gap: 8px; }
+  .mh-logo-icon { height: 38px; }
+  .mh-logo-name { font-size: 16px; }
 }
