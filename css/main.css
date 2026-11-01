@@ -985,3 +985,20 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
 @media (max-width: 400px) {
   .mh-logo-text { font-size: 14px; }
 }
+
+/* Keep the wordmark on one line at in-between widths */
+.mh-logo { flex: none; }
+.mh-logo-text { white-space: nowrap; }
+@media (max-width: 1100px) {
+  .mh-nav { padding: 20px 32px; }
+  .mh-logo-text { font-size: 22px; }
+  .mh-nav-links { gap: 22px; font-size: 16px; }
+  .mh-nav-links .mh-btn { padding: 0 20px; }
+}
+@media (max-width: 860px) {
+  .mh-nav { padding: 14px 16px; }
+  .mh-logo-text { font-size: 16px; }
+}
+@media (max-width: 400px) {
+  .mh-logo-text { font-size: 14px; }
+}
