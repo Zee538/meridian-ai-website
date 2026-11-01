@@ -1,0 +1,9 @@
+{
+  "name": "meridian-ai-website",
+  "private": true,
+  "type": "module",
+  "description": "Meridian AI Solutions website with first-party analytics",
+  "dependencies": {
+    "@netlify/blobs": "10.7.13"
+  }
+}

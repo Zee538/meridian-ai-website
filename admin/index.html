@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Developer login | Meridian AI Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Montserrat:wght@500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/admin.css">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+</head>
+<body class="ad-body">
+
+<header class="ad-top">
+  <a href="/" class="mh-logo" aria-label="Meridian AI Solutions home">
+    <img class="mh-logo-icon" src="/assets/logo-compass.png" alt="" width="46" height="50">
+    <span class="mh-logo-rule" aria-hidden="true"></span>
+    <span class="mh-logo-words"><span class="mh-logo-name">MERIDIAN</span><span class="mh-logo-sub"><i></i>AI SOLUTIONS<i></i></span></span>
+  </a>
+  <div class="ad-top-actions">
+    <a class="ad-link" href="/">Back to site</a>
+    <button class="ad-btn ad-btn-quiet" id="logout" type="button" hidden>Log out</button>
+  </div>
+</header>
+
+<main id="main" class="ad-main">
+
+  <section id="login" class="ad-login" hidden>
+    <p class="mh-eyebrow-label">DEVELOPER LOGIN</p>
+    <h1 class="ad-title">Site analytics</h1>
+    <p class="ad-sub">For the Meridian team. Enter the developer password to see how the website is doing.</p>
+    <form id="loginForm" class="ad-card ad-form" autocomplete="on">
+      <label class="ad-field" for="password"><span>Password</span>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button id="loginBtn" type="submit" class="mh-btn mh-btn-brand mh-btn-lg ad-wide">Log in</button>
+      <p id="loginMsg" class="ad-msg" role="alert" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="dash" class="ad-dash" hidden>
+    <div class="ad-dash-head">
+      <div>
+        <p class="mh-eyebrow-label">ANALYTICS</p>
+        <h1 class="ad-title">How the site is doing</h1>
+      </div>
+      <div class="ad-range" role="group" aria-label="Time range">
+        <button type="button" class="ad-chip is-on" data-days="7">7 days</button>
+        <button type="button" class="ad-chip" data-days="30">30 days</button>
+        <button type="button" class="ad-chip" data-days="90">90 days</button>
+      </div>
+    </div>
+
+    <div class="ad-kpis">
+      <div class="ad-card ad-kpi"><span class="ad-kpi-label">Page views</span><span class="ad-kpi-num" id="kViews">0</span></div>
+      <div class="ad-card ad-kpi"><span class="ad-kpi-label">Visitors</span><span class="ad-kpi-num" id="kVisitors">0</span></div>
+      <div class="ad-card ad-kpi"><span class="ad-kpi-label">Views per visitor</span><span class="ad-kpi-num" id="kRatio">0</span></div>
+    </div>
+
+    <div class="ad-card ad-chart">
+      <div class="ad-chart-head">
+        <h2>Daily activity</h2>
+        <div class="ad-legend"><span><i class="lg-views"></i>Page views</span><span><i class="lg-visitors"></i>Visitors</span></div>
+      </div>
+      <div id="chart" class="ad-chart-box"></div>
+      <p id="empty" class="ad-empty" hidden>No visits recorded in this range yet. New visits show up here within seconds.</p>
+    </div>
+
+    <div class="ad-lists">
+      <div class="ad-card"><h2>Top pages</h2><ul class="ad-list" id="lPages"></ul></div>
+      <div class="ad-card"><h2>Where visitors come from</h2><ul class="ad-list" id="lRefs"></ul></div>
+      <div class="ad-card"><h2>Countries</h2><ul class="ad-list" id="lCountries"></ul></div>
+      <div class="ad-card"><h2>Devices</h2><ul class="ad-list" id="lDevices"></ul></div>
+    </div>
+
+    <div class="ad-card ad-notes">
+      <label class="ad-check" for="ignoreMe"><input id="ignoreMe" type="checkbox"><span>Don't count my visits in this browser</span></label>
+      <p>Visitors are counted per day using an anonymous daily code, so one person visiting on two days counts twice in a longer range. Days are in UTC. Visits from search engines and other bots are left out, and so is anyone whose browser sends a Do Not Track signal.</p>
+      <p class="ad-updated" id="updated"></p>
+    </div>
+  </section>
+
+  <p id="boot" class="ad-boot">Loading…</p>
+</main>
+
+<script src="/js/admin.js" defer></script>
+</body>
+</html>

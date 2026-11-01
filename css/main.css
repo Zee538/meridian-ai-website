@@ -1014,3 +1014,5 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
   .mh-logo-icon { height: 38px; }
   .mh-logo-name { font-size: 16px; }
 }
+
+.mh-footer-legal { display: flex; gap: 22px; flex-wrap: wrap; }
