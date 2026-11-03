@@ -1,20 +1,18 @@
 (function () {
-  const nav = document.querySelector(".mh-nav");
-  const btn = nav && nav.querySelector(".mh-nav-toggle");
-  if (!btn) return;
+  var nav = document.getElementById("top");
+  var btn = document.getElementById("menuBtn");
+  if (!nav || !btn) return;
 
   function setOpen(open) {
-    nav.classList.toggle("is-open", open);
+    nav.classList.toggle("open", open);
     btn.setAttribute("aria-expanded", String(open));
     btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
 
-  btn.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
-  nav.querySelectorAll(".mh-nav-links a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setOpen(false);
+  btn.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+  [].forEach.call(nav.querySelectorAll(".links a"), function (a) {
+    a.addEventListener("click", function () { setOpen(false); });
   });
-  window.matchMedia("(min-width: 861px)").addEventListener("change", (e) => {
-    if (e.matches) setOpen(false);
-  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  window.matchMedia("(min-width: 1001px)").addEventListener("change", function (e) { if (e.matches) setOpen(false); });
 })();

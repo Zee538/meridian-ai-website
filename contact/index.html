@@ -6,7 +6,7 @@
 <title>Contact | Book a Demo | Meridian AI Solutions</title>
 <meta name="description" content="Book a demo or ask a question. Call, email or send a message and Meridian AI Solutions will reply personally.">
 <link rel="canonical" href="https://meridian-aisolutions.com/contact/">
-<meta name="theme-color" content="#07100e">
+<meta name="theme-color" content="#f5f9f7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Meridian AI Solutions">
 <meta property="og:title" content="Contact | Book a Demo | Meridian AI Solutions">
@@ -29,65 +29,49 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="mh-nav" data-reveal="fade-down">
-  <a href="/" class="mh-logo" aria-label="Meridian AI Solutions home">
-    <img class="mh-logo-icon" src="/assets/logo-compass.png" alt="" width="46" height="50">
-    <span class="mh-logo-rule" aria-hidden="true"></span>
-    <span class="mh-logo-words"><span class="mh-logo-name">MERIDIAN</span><span class="mh-logo-sub"><i></i>AI SOLUTIONS<i></i></span></span>
-  </a>
-  <button class="mh-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="mh-nav-links" id="site-nav" aria-label="Primary">
-    <a href="/services/" data-cursor-hover>Services</a>
-    <a href="/work/" data-cursor-hover>Work</a>
-    <a href="/about/" data-cursor-hover>About</a>
-    <a href="/contact/" aria-current="page" data-cursor-hover>Contact</a>
-    <a href="/contact/" class="mh-btn mh-btn-brand" data-cursor-hover>Book a demo</a>
-  </nav>
-</header>
-<main id="main">
-  <section class="mh-page-hero">
-    <span class="mh-blob mh-blob-a" aria-hidden="true"></span>
-    <span class="mh-blob mh-blob-b" aria-hidden="true"></span>
-    <div class="mh-section-inner">
-      <p class="mh-eyebrow-label" data-reveal="fade-up">CONTACT</p>
-      <h1 class="mh-page-title" data-reveal="fade-up" data-reveal-delay="1">Let&rsquo;s talk about <span class="mh-grad-text">your phones.</span></h1>
-      <p class="mh-lead" data-reveal="fade-up" data-reveal-delay="2">Book a demo, ask a question or tell us about your business. We'll reply personally.</p>
+<nav class="top" id="top">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Meridian AI Solutions home" data-cursor-hover><span class="logo-tile"><img src="/assets/logo-compass.png" alt="" width="46" height="50"></span><span class="logo-rule" aria-hidden="true"></span><span class="logo-words"><span class="logo-name">MERIDIAN</span><span class="logo-sub"><i></i>AI SOLUTIONS<i></i></span></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+    <div class="links" id="links">
+      <a href="/services/" data-cursor-hover>Services</a>
+      <a href="/work/" data-cursor-hover>Work</a>
+      <a href="/about/" data-cursor-hover>About</a>
+      <a href="/contact/" aria-current="page" data-cursor-hover>Contact</a>
+      <a href="/contact/" class="btn btn-primary nav-cta" data-cursor-hover>Book a demo</a>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <section class="mh-block">
-    <div class="mh-section-inner mh-contact-grid">
-      <div class="mh-contact-card" data-reveal="fade-up">
-        <div class="mh-contact-item">
-          <h3 class="mh-case-label">CALL</h3>
-          <a href="tel:+12428219725" class="mh-contact-link" data-cursor-hover>+1 (242) 821-9725</a>
-          <a href="tel:+12428229735" class="mh-contact-link" data-cursor-hover>+1 (242) 822-9735</a>
-        </div>
-        <div class="mh-contact-item">
-          <h3 class="mh-case-label">EMAIL</h3>
-          <a href="mailto:info@meridian-aisolutions.com" class="mh-contact-link" data-cursor-hover>info@meridian-aisolutions.com</a>
-        </div>
-        <div class="mh-contact-item">
-          <h3 class="mh-case-label">BASED IN</h3>
-          <span class="mh-contact-text">The Bahamas</span>
-        </div>
+<main id="main">
+  <header class="phero">
+    <div class="wrap">
+      <p class="label" data-reveal="fade-up">CONTACT</p>
+      <h1 data-reveal="fade-up" data-reveal-delay="1">Let&rsquo;s talk about <span class="grad">your phones.</span></h1>
+      <p class="lead" data-reveal="fade-up" data-reveal-delay="2">Book a demo, ask a question or tell us about your business. We'll reply personally.</p>
+    </div>
+  </header>
+  <section class="page" style="padding-bottom:90px">
+    <div class="wrap contact-grid">
+      <div class="ccard" data-reveal="fade-up">
+        <div class="item"><h3 class="label">CALL</h3><a href="tel:+12428219725" data-cursor-hover>+1 (242) 821-9725</a><a href="tel:+12428229735" data-cursor-hover>+1 (242) 822-9735</a></div>
+        <div class="item"><h3 class="label">EMAIL</h3><a href="mailto:info@meridian-aisolutions.com" data-cursor-hover>info@meridian-aisolutions.com</a></div>
+        <div class="item"><h3 class="label">BASED IN</h3><span class="txt2">The Bahamas</span></div>
       </div>
 
-      <form class="mh-form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-reveal="fade-up" data-reveal-delay="1">
+      <form class="form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-reveal="fade-up" data-reveal-delay="1">
         <input type="hidden" name="form-name" value="contact">
-        <p class="mh-hp" hidden><label>Leave this empty: <input name="bot-field"></label></p>
-        <div class="mh-form-row">
-          <label class="mh-field"><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
-          <label class="mh-field"><span>Business</span><input type="text" name="business" autocomplete="organization"></label>
+        <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+        <div class="frow">
+          <label class="field" for="f-name"><span>Name</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
+          <label class="field" for="f-biz"><span>Business</span><input id="f-biz" name="business" type="text" autocomplete="organization"></label>
         </div>
-        <div class="mh-form-row">
-          <label class="mh-field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
-          <label class="mh-field"><span>Phone <em>(optional)</em></span><input type="tel" name="phone" autocomplete="tel"></label>
+        <div class="frow">
+          <label class="field" for="f-email"><span>Email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <label class="field" for="f-phone"><span>Phone <em>(optional)</em></span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
         </div>
-        <label class="mh-field"><span>I'm interested in</span>
-          <select name="interest">
+        <label class="field" for="f-int"><span>I'm interested in</span>
+          <select id="f-int" name="interest">
             <option>An AI voice agent</option>
             <option>A Messenger bot</option>
             <option>An email bot</option>
@@ -96,53 +80,32 @@
             <option>Not sure yet</option>
           </select>
         </label>
-        <label class="mh-field"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
-        <button type="submit" class="mh-btn mh-btn-brand mh-btn-lg" data-cursor-hover>Send message <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#04110d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        <p class="mh-form-note">We use your details only to reply to you. See our <a href="/privacy/">privacy policy</a>.</p>
+        <label class="field" for="f-msg"><span>Message</span><textarea id="f-msg" name="message" rows="5" required></textarea></label>
+        <button type="submit" class="btn btn-primary btn-lg" data-cursor-hover>Send message &rarr;</button>
+        <p class="fnote">We use your details only to reply to you. See our <a href="/privacy/">privacy policy</a>.</p>
       </form>
     </div>
   </section>
 </main>
 
-<footer class="mh-footer">
-  <div class="mh-footer-top">
-    <div class="mh-footer-brandcol">
-      <a href="/" class="mh-logo mh-logo--footer" aria-label="Meridian AI Solutions home">
-    <img class="mh-logo-icon" src="/assets/logo-compass.png" alt="" width="46" height="50">
-    <span class="mh-logo-rule" aria-hidden="true"></span>
-    <span class="mh-logo-words"><span class="mh-logo-name">MERIDIAN</span><span class="mh-logo-sub"><i></i>AI SOLUTIONS<i></i></span></span>
-  </a>
-      <p class="mh-footer-slogan">Your Money&rsquo;$ on the Line</p>
-      <p class="mh-footer-blurb">Custom AI voice agents, Messenger and email bots, and websites for businesses in the Bahamas.</p>
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <a href="/" class="logo" aria-label="Meridian AI Solutions home" data-cursor-hover><span class="logo-tile"><img src="/assets/logo-compass.png" alt="" width="46" height="50"></span><span class="logo-rule" aria-hidden="true"></span><span class="logo-words"><span class="logo-name">MERIDIAN</span><span class="logo-sub"><i></i>AI SOLUTIONS<i></i></span></span></a>
+        <div class="fslogan">Your Money&rsquo;$ on the Line</div>
+        <p>Custom AI voice agents, Messenger and email bots, and websites for businesses in the Bahamas.</p>
+      </div>
+      <div class="fcols">
+        <div class="fcol"><h5>Services</h5><a href="/services/#voice">AI voice agents</a><a href="/services/#messenger">Messenger bots</a><a href="/services/#email">Email bots</a><a href="/services/#websites">Websites</a></div>
+        <div class="fcol"><h5>Company</h5><a href="/about/">About</a><a href="/work/">Work</a><a href="/contact/">Contact</a></div>
+        <div class="fcol"><h5>Get in touch</h5><a href="tel:+12428219725">+1 (242) 821-9725</a><a href="tel:+12428229735">+1 (242) 822-9735</a><a href="mailto:info@meridian-aisolutions.com">info@meridian-aisolutions.com</a><span>Based in the Bahamas</span></div>
+      </div>
     </div>
-    <nav class="mh-footer-cols" aria-label="Footer">
-      <div class="mh-footer-col">
-        <h4>Services</h4>
-        <a href="/services/#voice">AI voice agents</a>
-        <a href="/services/#messenger">Messenger bots</a>
-        <a href="/services/#email">Email bots</a>
-        <a href="/services/#websites">Websites</a>
-      </div>
-      <div class="mh-footer-col">
-        <h4>Company</h4>
-        <a href="/about/">About</a>
-        <a href="/work/">Work</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      <div class="mh-footer-col">
-        <h4>Get in touch</h4>
-        <a href="tel:+12428219725">+1 (242) 821-9725</a>
-        <a href="tel:+12428229735">+1 (242) 822-9735</a>
-        <a href="mailto:info@meridian-aisolutions.com">info@meridian-aisolutions.com</a>
-        <span>Based in the Bahamas</span>
-      </div>
-    </nav>
-  </div>
-  <div class="mh-footer-bottom">
-    <span>&copy; 2026 Meridian AI Solutions</span>
-    <span class="mh-footer-legal"><a href="/privacy/">Privacy policy</a><a href="/admin/">Developer login</a></span>
+    <div class="fbot"><span>&copy; 2026 Meridian AI Solutions</span><span class="flinks"><a href="/privacy/">Privacy policy</a><a href="/admin/">Developer login</a></span></div>
   </div>
 </footer>
+
 <script src="/js/analytics.js" defer></script>
 <script src="/js/cursor.js" defer></script>
 <script src="/js/reveal.js" defer></script>

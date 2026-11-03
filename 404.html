@@ -13,19 +13,56 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 </head>
 <body>
-<header class="mh-nav">
-  <a href="/" class="mh-logo" aria-label="Meridian AI Solutions home">
-    <img class="mh-logo-icon" src="/assets/logo-compass.png" alt="" width="46" height="50">
-    <span class="mh-logo-rule" aria-hidden="true"></span>
-    <span class="mh-logo-words"><span class="mh-logo-name">MERIDIAN</span><span class="mh-logo-sub"><i></i>AI SOLUTIONS<i></i></span></span>
-  </a>
-</header>
-<main class="mh-404">
-  <p class="mh-eyebrow-label">ERROR 404</p>
-  <h1 class="mh-section-title">This line is <span class="mh-grad-text">disconnected.</span></h1>
-  <p class="mh-hero-sub">The page you're looking for doesn't exist or has moved.</p>
-  <a href="/" class="mh-btn mh-btn-brand mh-btn-lg">Back to home</a>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="top" id="top">
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="Meridian AI Solutions home" data-cursor-hover><span class="logo-tile"><img src="/assets/logo-compass.png" alt="" width="46" height="50"></span><span class="logo-rule" aria-hidden="true"></span><span class="logo-words"><span class="logo-name">MERIDIAN</span><span class="logo-sub"><i></i>AI SOLUTIONS<i></i></span></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
+    <div class="links" id="links">
+      <a href="/services/" data-cursor-hover>Services</a>
+      <a href="/work/" data-cursor-hover>Work</a>
+      <a href="/about/" data-cursor-hover>About</a>
+      <a href="/contact/" data-cursor-hover>Contact</a>
+      <a href="/contact/" class="btn btn-primary nav-cta" data-cursor-hover>Book a demo</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" class="notfound">
+  <div class="wrap">
+    <p class="label">ERROR 404</p>
+    <h1>This line is <span class="grad">disconnected.</span></h1>
+    <p class="lead">The page you're looking for doesn't exist or has moved.</p>
+    <a href="/" class="btn btn-primary btn-lg" data-cursor-hover>Back to home</a>
+  </div>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="ftop">
+      <div class="fbrand">
+        <a href="/" class="logo" aria-label="Meridian AI Solutions home" data-cursor-hover><span class="logo-tile"><img src="/assets/logo-compass.png" alt="" width="46" height="50"></span><span class="logo-rule" aria-hidden="true"></span><span class="logo-words"><span class="logo-name">MERIDIAN</span><span class="logo-sub"><i></i>AI SOLUTIONS<i></i></span></span></a>
+        <div class="fslogan">Your Money&rsquo;$ on the Line</div>
+        <p>Custom AI voice agents, Messenger and email bots, and websites for businesses in the Bahamas.</p>
+      </div>
+      <div class="fcols">
+        <div class="fcol"><h5>Services</h5><a href="/services/#voice">AI voice agents</a><a href="/services/#messenger">Messenger bots</a><a href="/services/#email">Email bots</a><a href="/services/#websites">Websites</a></div>
+        <div class="fcol"><h5>Company</h5><a href="/about/">About</a><a href="/work/">Work</a><a href="/contact/">Contact</a></div>
+        <div class="fcol"><h5>Get in touch</h5><a href="tel:+12428219725">+1 (242) 821-9725</a><a href="tel:+12428229735">+1 (242) 822-9735</a><a href="mailto:info@meridian-aisolutions.com">info@meridian-aisolutions.com</a><span>Based in the Bahamas</span></div>
+      </div>
+    </div>
+    <div class="fbot"><span>&copy; 2026 Meridian AI Solutions</span><span class="flinks"><a href="/privacy/">Privacy policy</a><a href="/admin/">Developer login</a></span></div>
+  </div>
+</footer>
+
 <script src="/js/analytics.js" defer></script>
+<script src="/js/cursor.js" defer></script>
+<script src="/js/reveal.js" defer></script>
+<script src="/js/nav-toggle.js" defer></script>
 </body>
 </html>
