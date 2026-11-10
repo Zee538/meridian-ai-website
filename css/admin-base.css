@@ -1,39 +1,41 @@
 /* ---------------------------------------------------
-   Meridian AI Solutions — design tokens & base styles
+   Meridian AI Solutions — light design tokens & base styles
 --------------------------------------------------- */
 :root {
-  --bg: #07100e;
-  --bg-alt: #08120f;
-  --panel: #0d1715;
-  --panel-2: #0a1412;
-  --panel-3: #0c1815;
-  --panel-4: #14211e;
-  --panel-cta: #0b1614;
-  --panel-nav-btn: #0b1714;
+  --bg: #f5f9f7;
+  --bg-alt: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f5f9f7;
+  --panel-3: #edf6f1;
+  --panel-4: #eaf3ef;
+  --panel-cta: #eaf3ef;
+  --panel-nav-btn: #ffffff;
 
-  --border: #1c302b;
-  --border-soft: #1a2825;
-  --border-btn: #22332f;
-  --border-cta: #1f3a34;
-  --border-accent: rgba(139, 107, 255, 0.35);
+  --border: #dbe7e2;
+  --border-soft: #dbe7e2;
+  --border-btn: #c5d7ce;
+  --border-cta: #b6d8ca;
+  --border-accent: rgba(122, 90, 245, 0.25);
 
-  --text: #f2f7f5;
-  --text-dim: #93a4a0;
-  --text-dim-2: #8fa19c;
-  --text-dim-3: #9aaba6;
-  --text-dim-4: #8a9b96;
-  --text-dim-5: #7f918c;
-  --text-chat: #c4d2ce;
-  --text-chat-2: #e6f5f0;
+  --text: #0c201b;
+  --text-dim: #44574f;
+  --text-dim-2: #53685e;
+  --text-dim-3: #44574f;
+  --text-dim-4: #53685e;
+  --text-dim-5: #53685e;
+  --text-chat: #44574f;
+  --text-chat-2: #0c201b;
 
-  --teal: #1fe0b0;
-  --blue: #2bc8ff;
-  --violet: #8b6bff;
-  --ink: #04110d;
+  --teal: #0fb98f;
+  --teal-d: #07906d;
+  --focus: #06795d;
+  --blue: #1fa6e6;
+  --violet: #7a5af5;
+  --ink: #052019;
 
-  --grad-brand: linear-gradient(90deg, #1fe0b0, #2bc8ff);
-  --grad-brand-diag: linear-gradient(135deg, #1fe0b0, #2bc8ff);
-  --grad-text: linear-gradient(90deg, #1fe0b0, #2bc8ff, #8b6bff);
+  --grad-brand: linear-gradient(90deg, #14d3a3, #27b4f0);
+  --grad-brand-diag: linear-gradient(135deg, #14d3a3, #27b4f0);
+  --grad-text: linear-gradient(90deg, #0fb98f, #1fa6e6, #7a5af5);
 
   --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
@@ -150,7 +152,7 @@ a { color: inherit; text-decoration: none; }
   gap: 14px;
   min-height: 48px;
   padding: 0 24px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-family: var(--font-body);
   font-weight: 500;
   border: none;
@@ -176,12 +178,12 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
 }
 .mh-btn-lg {
-  min-height: 68px;
-  padding: 0 40px;
+  min-height: 60px;
+  padding: 0 34px;
   border-radius: 16px;
-  font-size: 20px;
+  font-size: 17px;
 }
-.mh-btn-brand.mh-btn-lg { box-shadow: 0 12px 40px rgba(31, 224, 176, 0.25); }
+.mh-btn-brand.mh-btn-lg { box-shadow: 0 12px 30px -10px rgba(15, 185, 143, 0.4); }
 
 .mh-grad-text {
   background: var(--grad-text);
@@ -396,7 +398,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.16em;
-  color: var(--teal);
+  color: var(--focus);
   margin: 0;
 }
 .mh-section-title {
@@ -883,7 +885,7 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
   font: inherit;
   font-size: 16px;
 }
-.mh-field select option { background: #0d1715; color: var(--text); }
+.mh-field select option { background: var(--panel); color: var(--text); }
 .mh-field textarea { resize: vertical; min-height: 130px; }
 .mh-field input:focus, .mh-field select:focus, .mh-field textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(31, 224, 176, 0.18); }
 .mh-form .mh-btn { align-self: flex-start; cursor: pointer; }
@@ -977,10 +979,10 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
    Logo lockup: compass + wordmark
 --------------------------------------------------- */
 .mh-logo { display: flex; align-items: center; gap: 14px; flex: none; }
-.mh-logo-icon { display: block; height: 62px; width: auto; }
-.mh-logo-rule { flex: none; width: 2px; height: 50px; border-radius: 2px; background: linear-gradient(180deg, #e0b13a, #b98a1f); }
+.mh-logo-icon { display: block; height: 56px; width: 56px; padding: 5px; object-fit: contain; background: #0a1612; border-radius: 16px; }
+.mh-logo-rule { flex: none; width: 2px; height: 44px; border-radius: 2px; background: linear-gradient(180deg, #e0b13a, #b98a1f); }
 .mh-logo-words { display: flex; flex-direction: column; gap: 6px; line-height: 1; }
-.mh-logo-name { font-family: "Montserrat", var(--font-head); font-weight: 700; font-size: 26px; letter-spacing: 0.02em; color: #fff; }
+.mh-logo-name { font-family: "Montserrat", var(--font-head); font-weight: 700; font-size: 25px; letter-spacing: 0.02em; color: var(--text); }
 .mh-logo-sub {
   display: flex;
   align-items: center;
@@ -989,30 +991,39 @@ a:focus-visible, .mh-btn:focus-visible { outline: 2px solid var(--teal); outline
   font-weight: 500;
   font-size: 9px;
   letter-spacing: 0.42em;
-  color: #e6efe9;
+  color: var(--text-dim);
   white-space: nowrap;
 }
-.mh-logo-sub i { flex: 1; min-width: 8px; height: 2px; background: #1fb58a; }
+.mh-logo-sub i { flex: 1; min-width: 8px; height: 2px; background: #10a77b; }
 .mh-logo--footer .mh-logo-icon { height: 68px; }
 .mh-logo--footer .mh-logo-name { font-size: 28px; }
 
 @media (max-width: 1100px) {
-  .mh-logo-icon { height: 52px; }
-  .mh-logo-rule { height: 42px; }
+  .mh-logo-icon { height: 50px; width: 50px; }
+  .mh-logo-rule { height: 38px; }
   .mh-logo-name { font-size: 22px; }
   .mh-logo-sub { font-size: 8px; }
 }
 @media (max-width: 860px) {
   .mh-logo { gap: 10px; }
-  .mh-logo-icon { height: 44px; }
-  .mh-logo-rule { height: 34px; }
+  .mh-logo-icon { height: 44px; width: 44px; padding: 4px; border-radius: 12px; }
+  .mh-logo-rule { height: 32px; }
   .mh-logo-name { font-size: 18px; }
   .mh-logo-sub { font-size: 7px; gap: 6px; }
 }
 @media (max-width: 400px) {
   .mh-logo { gap: 8px; }
-  .mh-logo-icon { height: 38px; }
+  .mh-logo-icon { height: 42px; width: 42px; }
   .mh-logo-name { font-size: 16px; }
 }
 
 .mh-footer-legal { display: flex; gap: 22px; flex-wrap: wrap; }
+
+/* Shared light-theme controls; auth and visibility states remain native. */
+button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, a:focus-visible, .mh-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+.mh-btn:disabled:hover { transform: none; }
