@@ -38,7 +38,7 @@
       <a href="/work/" data-cursor-hover>Work</a>
       <a href="/about/" data-cursor-hover>About</a>
       <a href="/contact/" aria-current="page" data-cursor-hover>Contact</a>
-      <a href="/contact/" class="btn btn-primary nav-cta" data-cursor-hover>Book a demo</a>
+      <a href="/contact/" class="btn btn-primary nav-cta" data-cursor-hover>Talk to us</a>
     </div>
   </div>
 </nav>
@@ -47,7 +47,7 @@
   <header class="phero">
     <div class="wrap">
       <p class="label" data-reveal="fade-up">CONTACT</p>
-      <h1 data-reveal="fade-up" data-reveal-delay="1">Let&rsquo;s talk about <span class="grad">your phones.</span></h1>
+      <h1 data-reveal="fade-up" data-reveal-delay="1">Let&rsquo;s talk about <span class="grad">your business.</span></h1>
       <p class="lead" data-reveal="fade-up" data-reveal-delay="2">Book a demo, ask a question or tell us about your business. We'll reply personally.</p>
     </div>
   </header>
@@ -61,6 +61,7 @@
 
       <form class="form" name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="bot-field" data-reveal="fade-up" data-reveal-delay="1">
         <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="demo-intent" id="f-demo-intent" value="">
         <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
         <div class="frow">
           <label class="field" for="f-name"><span>Name</span><input id="f-name" name="name" type="text" autocomplete="name" required></label>
@@ -70,17 +71,34 @@
           <label class="field" for="f-email"><span>Email</span><input id="f-email" name="email" type="email" autocomplete="email" required></label>
           <label class="field" for="f-phone"><span>Phone <em>(optional)</em></span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
         </div>
-        <label class="field" for="f-int"><span>I'm interested in</span>
-          <select id="f-int" name="interest">
-            <option>An AI voice agent</option>
-            <option>A Messenger bot</option>
-            <option>An email bot</option>
-            <option>A website</option>
-            <option>More than one</option>
-            <option>Not sure yet</option>
-          </select>
-        </label>
-        <label class="field" for="f-msg"><span>Message</span><textarea id="f-msg" name="message" rows="5" required></textarea></label>
+        <p class="fnote" id="contact-context" role="status" aria-live="polite" hidden></p>
+        <div class="frow">
+          <label class="field" for="f-industry"><span>Industry <em>(optional)</em></span>
+            <select id="f-industry" name="industry">
+              <option value="">Choose an industry</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="dental">Dental practice</option>
+              <option value="legal">Legal practice</option>
+              <option value="retail">Retail store</option>
+              <option value="auto_parts">Auto parts</option>
+              <option value="other">Another industry</option>
+            </select>
+          </label>
+          <label class="field" for="f-int"><span>I'm interested in</span>
+            <select id="f-int" name="interest">
+              <option>An AI voice agent</option>
+              <option>A Messenger bot</option>
+              <option>An email bot</option>
+              <option>A website</option>
+              <option>Workflow automation</option>
+              <option>Portals</option>
+              <option>More than one</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+        <label class="field" for="f-msg"><span>What would you like to improve?</span><textarea id="f-msg" name="message" rows="5" aria-describedby="message-hint" required></textarea></label>
+        <p class="fnote" id="message-hint">Tell us what you need, how you handle it today and any software you use.</p>
         <button type="submit" class="btn btn-primary btn-lg" data-cursor-hover>Send message &rarr;</button>
         <p class="fnote">We use your details only to reply to you. See our <a href="/privacy/">privacy policy</a>.</p>
       </form>
@@ -94,11 +112,11 @@
       <div class="fbrand">
         <a href="/" class="logo" aria-label="Meridian AI Solutions home" data-cursor-hover><span class="logo-tile"><img src="/assets/logo-compass.png" alt="" width="46" height="50"></span><span class="logo-rule" aria-hidden="true"></span><span class="logo-words"><span class="logo-name">MERIDIAN</span><span class="logo-sub"><i></i>AI SOLUTIONS<i></i></span></span></a>
         <div class="fslogan">Your Money&rsquo;$ on the Line</div>
-        <p>Custom AI voice agents, Messenger and email bots, and websites for businesses in the Bahamas.</p>
+        <p>AI voice agents, messaging, websites, portals and workflow automation for businesses in the Bahamas.</p>
       </div>
       <div class="fcols">
-        <div class="fcol"><h5>Services</h5><a href="/services/#voice">AI voice agents</a><a href="/services/#messenger">Messenger bots</a><a href="/services/#email">Email bots</a><a href="/services/#websites">Websites</a></div>
-        <div class="fcol"><h5>Company</h5><a href="/about/">About</a><a href="/work/">Work</a><a href="/contact/">Contact</a></div>
+        <div class="fcol"><h5>Services</h5><a href="/services/#voice">AI voice agents</a><a href="/services/#messenger">Messenger bots</a><a href="/services/#email">Email bots</a><a href="/services/#websites">Websites &amp; portals</a><a href="/services/#automation">Workflow automation</a></div>
+        <div class="fcol"><h5>Company</h5><a href="/about/">About</a><a href="/work/">Work</a><a href="/contact/">Contact</a><a href="https://www.facebook.com/profile.php?id=61596332360938" aria-label="Meridian AI Solutions on Facebook">Facebook</a><a href="https://www.tiktok.com/@meridian.a.i.solut" aria-label="Meridian AI Solutions on TikTok">TikTok</a></div>
         <div class="fcol"><h5>Get in touch</h5><a href="tel:+12428219725">+1 (242) 821-9725</a><a href="tel:+12428229735">+1 (242) 822-9735</a><a href="mailto:info@meridian-aisolutions.com">info@meridian-aisolutions.com</a><span>Based in the Bahamas</span></div>
       </div>
     </div>
@@ -106,6 +124,7 @@
   </div>
 </footer>
 
+<script src="/js/contact-context.js" defer></script>
 <script src="/js/analytics.js" defer></script>
 <script src="/js/cursor.js" defer></script>
 <script src="/js/reveal.js" defer></script>
