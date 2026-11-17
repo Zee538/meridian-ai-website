@@ -206,6 +206,11 @@
   .prose-legal h2{margin:38px 0 10px;font-size:26px;letter-spacing:-.02em}
   .prose-legal h2:first-child{margin-top:0}
   .prose-legal p{margin:0;font-size:17px;line-height:1.7;color:var(--ink2)}
+  .prose-legal ul{margin:0;padding-left:22px}
+  .prose-legal li{font-size:17px;line-height:1.7;color:var(--ink2)}
+  .prose-legal li+li{margin-top:8px}
+  .prose-legal strong{color:var(--ink);font-weight:600}
+  .prose-legal ul+p,.prose-legal p+p{margin-top:14px}
 
   footer{background:#fff;border-top:1px solid var(--line);padding:70px 0 34px}
   .ftop{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap}
