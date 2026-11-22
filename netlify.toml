@@ -3,3 +3,22 @@
 
 [functions]
   directory = "netlify/functions"
+
+# Internal marketing research and agent skills live in this repo but must never be served publicly.
+[[redirects]]
+  from = "/marketing/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.claude/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.agents/*"
+  to = "/404.html"
+  status = 404
+  force = true
