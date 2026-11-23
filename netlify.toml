@@ -22,3 +22,16 @@
   to = "/404.html"
   status = 404
   force = true
+
+# The contract portal and internal ops docs deploy separately (Netlify project "meridian-agreement-sign"); never serve them from the main site.
+[[redirects]]
+  from = "/contracts-portal/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/ops/*"
+  to = "/404.html"
+  status = 404
+  force = true
