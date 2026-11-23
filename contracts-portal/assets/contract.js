@@ -106,6 +106,98 @@
     window.scrollTo({ top: $("clientCard").getBoundingClientRect().top + window.scrollY - 24, behavior: "smooth" });
   }
 
+  // n8n "Meridian Agreement Signing" workflow: emails Zion and Rinari with the signed PDF
+  // and logs the signing in the Signed Agreements table.
+  var NOTIFY_URL = "https://meridianaibahamas.app.n8n.cloud/webhook/meridian-agreement-signed";
+  var CONTRACT_VERSION = body.getAttribute("data-contract-version") || "";
+
+  function contractText() {
+    var parts = [];
+    Array.prototype.forEach.call(document.querySelectorAll(".parties .party, section.clause"), function (el) {
+      // Copy the section and swap each fill-in line for the name typed into it.
+      var c = el.cloneNode(true);
+      Array.prototype.forEach.call(c.querySelectorAll("input"), function (i) { i.replaceWith(document.createTextNode(repName || "")); });
+      Array.prototype.forEach.call(c.querySelectorAll(".rep-label"), function (n) { n.textContent = " (Client representative)"; });
+      document.body.appendChild(c); c.style.position = "absolute"; c.style.left = "-9999px";
+      parts.push((c.innerText || c.textContent || "").replace(/\n{3,}/g, "\n\n").trim());
+      c.remove();
+    });
+    return parts.join("\n\n");
+  }
+
+  function sha256(text) {
+    if (!window.crypto || !crypto.subtle || !window.TextEncoder) return Promise.resolve("");
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(text)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+    }).catch(function () { return ""; });
+  }
+
+  function buildPdf(rec, sigDataUrl, text, hash) {
+    try {
+      var J = window.jspdf && window.jspdf.jsPDF; if (!J) return "";
+      var doc = new J({ unit: "pt", format: "letter" });
+      var W = doc.internal.pageSize.getWidth(), H = doc.internal.pageSize.getHeight(), M = 56, y = M;
+      function ensure(h) { if (y + h > H - M) { doc.addPage(); y = M; } }
+      doc.setFillColor(10, 29, 24); doc.rect(0, 0, W, 70, "F");
+      doc.setTextColor(255, 255, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(18); doc.text("MERIDIAN AI SOLUTIONS", M, 44);
+      doc.setTextColor(224, 177, 58); doc.setFontSize(9); doc.text("SERVICES AGREEMENT", W - M, 44, { align: "right" });
+      y = 104; doc.setTextColor(12, 32, 27); doc.setFontSize(16); doc.text(CONTRACT_TITLE, M, y, { maxWidth: W - 2 * M }); y += 34;
+      doc.setFont("helvetica", "normal"); doc.setFontSize(10);
+      text.split("\n").forEach(function (line) {
+        var wrapped = doc.splitTextToSize(line || " ", W - 2 * M);
+        wrapped.forEach(function (w) { ensure(14); doc.text(w, M, y); y += 14; });
+      });
+      y += 12; ensure(200);
+      doc.setDrawColor(12, 32, 27); doc.line(M, y, W - M, y); y += 22;
+      doc.setFont("helvetica", "bold"); doc.setFontSize(12); doc.text("Signed by the Client", M, y); y += 14;
+      doc.addImage(sigDataUrl, "PNG", M, y, 200, 60); y += 72;
+      doc.setFont("helvetica", "normal"); doc.setFontSize(10);
+      [rec.name + ", " + rec.title, rec.company, rec.email, "Signed " + fmt(rec.when) + " (" + rec.when.toISOString() + ")",
+       "Contract fingerprint (SHA-256): " + (hash || "n/a"), "Meridian AI Solutions countersigns on receipt."].forEach(function (l) {
+        doc.splitTextToSize(l, W - 2 * M).forEach(function (w) { ensure(14); doc.text(w, M, y); y += 14; });
+      });
+      return doc.output("datauristring").split(",")[1] || "";
+    } catch (e) { return ""; }
+  }
+
+  var JSPDF_URL = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+  function loadJsPdf() {
+    if (window.jspdf && window.jspdf.jsPDF) return Promise.resolve(true);
+    return new Promise(function (resolve) {
+      var done = false, finish = function (ok) { if (!done) { done = true; resolve(ok); } };
+      var s = document.createElement("script"); s.src = JSPDF_URL; s.async = true;
+      s.onload = function () { finish(!!(window.jspdf && window.jspdf.jsPDF)); };
+      s.onerror = function () { finish(false); };
+      document.head.appendChild(s);
+      setTimeout(function () { finish(false); }, 8000);
+    });
+  }
+
+  function notifyTeam(rec, sigDataUrl) {
+    var text = contractText();
+    return Promise.all([sha256(text), loadJsPdf()]).then(function (r) { var hash = r[0];
+      var safe = (CONTRACT_ID || "agreement").replace(/[^a-z0-9-]/gi, "");
+      var payload = {
+        agreement_id: CONTRACT_ID,
+        signer_name: rec.name,
+        typed_signature: rec.name,
+        company: rec.company,
+        email: rec.email,
+        title: rec.title,
+        signed_at: rec.when.toISOString(),
+        contract_version: CONTRACT_VERSION,
+        contract_hash: hash,
+        contract_url: location.href.split("#")[0],
+        user_agent: navigator.userAgent,
+        signature_png: sigDataUrl,
+        pdf_base64: buildPdf(rec, sigDataUrl, text, hash),
+        pdf_filename: "Meridian-" + safe + "-signed.pdf"
+      };
+      return fetch(NOTIFY_URL, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) })
+        .then(function (r) { if (!r.ok) throw new Error("status " + r.status); return true; });
+    });
+  }
+
   function encodeForm(fields, file) {
     var fd = new FormData();
     Object.keys(fields).forEach(function (k) { fd.append(k, fields[k]); });
@@ -147,9 +239,16 @@
           "signed-at": when.toISOString(),
           "signed-at-local": fmt(when)
         };
-        fetch("/", { method: "POST", body: encodeForm(fields, file) }).then(function (r) {
-          if (!r.ok) throw new Error("status " + r.status);
-          showSigned({ name: name, title: title, company: company, email: email, when: when }, sigCanvas.toDataURL("image/png"));
+        var rec = { name: name, title: title, company: company, email: email, when: when };
+        var sigUrl = sigCanvas.toDataURL("image/png");
+        // Send to both: the n8n workflow emails the team; the Netlify form keeps a backup record.
+        var sends = [
+          notifyTeam(rec, sigUrl).then(function () { return true; }, function () { return false; }),
+          fetch("/", { method: "POST", body: encodeForm(fields, file) }).then(function (r) { return r.ok; }, function () { return false; })
+        ];
+        Promise.all(sends).then(function (res) {
+          if (!res[0] && !res[1]) throw new Error("both failed");
+          showSigned(rec, sigUrl);
         }).catch(function () {
           btn.disabled = false; btn.textContent = "Sign agreement";
           msg.textContent = "We couldn't send your signature. Check your connection and try again, or email info@meridian-aisolutions.com.";
