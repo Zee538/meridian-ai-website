@@ -1,3 +1,4 @@
 .DS_Store
 meridian-homepage-reference.html
 node_modules/
+.netlify/
